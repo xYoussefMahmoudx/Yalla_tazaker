@@ -526,22 +526,28 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		sw=input.nextInt();
 		switch (sw) {
 		case 1: {
-			
+			try {
 			System.out.println("insert the name of the event ");
 			String eventName;
 			eventName=input.nextLine();
 			currentEmployee.searchEventByTitle(eventName, events);
-			
+			}
+			catch (NotInListException e) {
+				e.getNotFound();
+			}
 			break;
 		}
 		
 		case 2: {
-			
+			try {
 			System.out.println("insert the name of the event ");
 			String eventName;
 			eventName=input.nextLine();
 			currentEmployee.viewEventDetails(eventName,events);	
-			
+			}
+			catch (NotInListException e) {
+				e.getNotFound();
+			}
 			break;
 			
 		}
