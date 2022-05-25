@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class TicketReservationSystem {
 	
-	
+	private  static  TicketReservationSystem instance;
 	Scanner  input = new Scanner(System.in);
 	
 	ArrayList<Employee> employees = new ArrayList<Employee>();
@@ -45,15 +45,15 @@ public class TicketReservationSystem {
 		clients.add(client);
 		
 
-		Category categ1 = new Category();
+		//Category categ1 = new Category();
 		
-		categ1.setType("moviee");
-		categories.add(categ1);
+		//categ1.setType("movie");
+		categories.add(new Category("movie"));
 
-		Category categ2 = new Category();
+		//Category categ2 = new Category();
 		
-		categ1.setType("match");
-		categories.add(categ2);
+		//categ1.setType("match");
+		categories.add(new Category("sport"));
 		
 
 		
@@ -65,7 +65,7 @@ public class TicketReservationSystem {
 		event1.setEndTime(LocalTime.of(11,30 ));
 		event1.setDescription("bad moviee");
 		event1.setAvailbleTickets(30);
-		event1.setCategory(categ1);
+		event1.setCategory(categories.get(0));
 		events.add(event1);
 	
 		
@@ -78,7 +78,7 @@ public class TicketReservationSystem {
        event2.setEndTime(LocalTime.of(11,30 ));
        event2.setDescription("good moviee");
        event2.setAvailbleTickets(30);
-       event2.setCategory(categ1);
+       event2.setCategory(categories.get(1));
 		events.add( event2);
 		
 	       Event event3 = new Event();	
@@ -89,74 +89,108 @@ public class TicketReservationSystem {
 	       event3 .setEndTime(LocalTime.of(11,30 ));
 	       event3 .setDescription("worst match ever waste for your money");
 	       event3 .setAvailbleTickets(11);
-	       event3 .setCategory(categ2);
+	       event3 .setCategory(categories.get(1));
 			events.add( event3);
 		
 	}
 	
-	public Admin letAdminSignin() {
+	public static TicketReservationSystem getInstance(){
+		if(instance == null){
+			instance=new TicketReservationSystem();
+			instance.intiateData();
+		}
+		return instance;
+	}
+	Admin currentAdmin= new Admin();
+	boolean accountExist;
+	String forException;
+	public Admin letAdminSignin(String userName,String password) {
 		
 		System.out.println("please insert your username : " );
-		Admin currentAdmin= new Admin();
 		
-		String userName = input.next();
+		
 		System.out.println("please insert your password : " );
 
-		  String password = input.next();
-		boolean accountExist=false;
-		for (int i = 0; i < admines.size(); i++) {
+		for(int i = 0; i < admines.size(); i++) {
 			
-	      if(admines.get(i).getAccount().getUserName() .equals(userName)&&admines.get(i).getAccount().getPassword().equals(password)) {
+	      if(admines.get(i).getAccount().getUserName().equals(userName) && admines.get(i).getAccount().getPassword().equals(password)) {
 	    	  
 	    	  accountExist = true;
 	    	  currentAdmin= admines.get(i);
 	    	 
-	    	
+	    	  
 	    	  currentAdmin.signInAccount(userName,password);
 	    	  return currentAdmin;
 	      }
-	    }
+		}
 		
 		if(!accountExist)
 			System.out.println("Account not exist ");
+		
+		
 		return null;
 	}
+	
+	
+	
 	public void letAdminSignout(Admin currentAdmin) {
 		
 		currentAdmin.signOutAccount();
 		
 	}
-	
-	public void letAdminControlCategory(Admin currentAdmin){
+	boolean error;
+	public void letAdminControlCategory(Admin currentAdmin,int sw,String catType,String newCatType){
 		System.out.println("Please insert the one of the following numbers" );
 		System.out.println("1: Add category");
 		System.out.println("2: Edit category");
 		System.out.println("3: Delete category");
-		int sw;
-		sw=input.nextInt();
+		//int sw;
+		//sw=input.nextInt();
 	switch(sw) {	
 	case 1:{
-		categories.add(currentAdmin.addCategory());
+		try {
+			for (int i = 0; i < categories.size(); i++) {
+				System.out.println(categories.get(i).getType());
+			      
+			      if(i == categories.size()-1) {
+			    	  error = false;
+			    	  categories.add(currentAdmin.addCategory(catType));
+			    	  break;
+			      }
+			      if(categories.get(i).getType().equals(catType)) {
+			    	  
+			    	  error = true;
+			    	  throw new AlreadyInListException(catType, " is already added!");
+			    	  
+			      }
+			}
+		} catch (AlreadyInListException e) {
+			forException = e.getFound() + " is already added!";
+		}
+		
 		break;
 	}
 	case 2:{
 		System.out.println("Please insert the Category  you wish to edit");
 		try {
-			String catType = input.next();
+			
 			for (int i = 0; i < categories.size(); i++) {
-				
-			      if(categories.get(i).getType() .equals(catType)) {
+				System.out.println(categories.get(i).getType());
+			      if(categories.get(i).getType().equals(catType)) {
 			    	  
-			    	  currentAdmin.editCategory(categories.get(i));
+			    	  currentAdmin.editCategory(categories.get(i),newCatType);
+			    	  error = false;
 			    	  break;  
 			      }
 			      if(i == categories.size()-1) {
+			    	  error = true;
 			    	  throw new NotInListException(catType, "Category does not exist!");
 			      }
 			}
 		}
 		catch(NotInListException e) {
 			e.getNotFound();
+			forException = e.getNotFound() + " does not exist!";
 		}
 		      
 		break;
@@ -165,21 +199,29 @@ public class TicketReservationSystem {
 	case 3:{
 		System.out.println("Please insert the Category  you wish to delete");
 		try {
-			String catType = input.next();
+			//String catType = input.next();
 			for (int i = 0; i < categories.size(); i++) {
-				
-			      if(categories.get(i).getType() .equals(catType)) {
+					System.out.println(categories.get(i).getType());
+			      if(categories.get(i).getType().equals(catType)) {
 			    	  
 			    	  currentAdmin.deleteCategory(categories.get(i), categories);
+			    	  error = false;
 			    	  break;  
 			      }
-			      if(i == categories.size()-1) {
+			      if(i == (categories.size()-1)) {
+			    	  error = true;
 			    	  throw new NotInListException(catType, "Category does not exist!");
+			    	  
 			      }
 			}
 		}
 		catch(NotInListException e) {
 			e.getNotFound();
+			forException = e.getNotFound() + " does not exist!";
+		}
+		catch (NullPointerException e) {
+			error = true;
+			e.getMessage();
 		}
 			break;
 	}
@@ -513,7 +555,7 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		
 	}
 		
-	public void letEmployeeControlEvent(Employee currentEmployee) {
+public void letEmployeeControlEvent(Employee currentEmployee) {
 		
 		
 		
@@ -531,10 +573,14 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 			String eventName;
 			eventName=input.nextLine();
 			currentEmployee.searchEventByTitle(eventName, events);
+
+			
 			}
-			catch (NotInListException e) {
-				e.getNotFound();
+			catch (Exception e) {
+				e.getMessage();
+
 			}
+
 			break;
 		}
 		
@@ -545,9 +591,10 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 			eventName=input.nextLine();
 			currentEmployee.viewEventDetails(eventName,events);	
 			}
-			catch (NotInListException e) {
-				e.getNotFound();
-			}
+
+			catch (Exception e) {
+				e.getMessage();
+
 			break;
 			
 		}
@@ -572,4 +619,3 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 	
 
 }
-

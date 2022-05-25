@@ -229,6 +229,8 @@ public class Employee extends Person  {
 
 	public void viewEventDetails(String title,ArrayList<Event>events) {
 		if(loginFlag==true) {
+			
+			try {
 			int index=-1;
 			for(int i=0;i<events.size();i++) {
 				
@@ -239,19 +241,26 @@ public class Employee extends Person  {
 				}
 			}
 			if(index==-1) {
-				System.out.println("event not found");
+				throw new NotInListException(title,"event not found" );
 			}
-			
-			
 			else {
+				
+				System.out.println("event title " + events.get(index).getTitle() );
+				System.out.println("event category " + events.get(index).getCategory().getType() );
+				System.out.println("event location " + events.get(index).getLocation() );
+				System.out.println("event Start time " + events.get(index).getStartTime() );
+				System.out.println("event end time  " + events.get(index).getEndTime() );
+				System.out.println("event date " + events.get(index).getDate() );
+					}
 			
-		System.out.println("event title " + events.get(index).getTitle() );
-		System.out.println("event category " + events.get(index).getCategory().getType() );
-		System.out.println("event location " + events.get(index).getLocation() );
-		System.out.println("event Start time " + events.get(index).getStartTime() );
-		System.out.println("event end time  " + events.get(index).getEndTime() );
-		System.out.println("event date " + events.get(index).getDate() );
 			}
+			catch (Exception e) {
+				e.getMessage();
+			}
+			
+	
+			
+		
 			
 		}
 		else {
