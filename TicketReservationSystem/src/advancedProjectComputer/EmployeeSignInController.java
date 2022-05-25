@@ -30,36 +30,32 @@ public class EmployeeSignInController {
 	// Event Listener on Button[#employeeSignInButton].onAction
 	@FXML
 	public void employeeSignIn(ActionEvent event) throws IOException {
-		
-	
-Employee myEmployee = TRS.letEmployeeStart('Y',employeeUsername.getText().toString(), employeePassword.getText().toString());
-		
-		if(myEmployee == null) {
-			
-			employeeSignInStatus.setText("Wrong username or password!");
-			
-		}
-		else {
-			
+		try {
+			Employee myEmployee = TRS.letEmployeeStart('Y',employeeUsername.getText().toString(), employeePassword.getText().toString());
 			m.changeScene("adminHome.fxml");
-			//m.changeScene("adminSignIn.fxml");
+			System.out.println("1"+TRS.employees.get(0).getAccount().getUserName());
+		}
+		catch(NullPointerException e) {
+			employeeSignInStatus.setText("Wrong username or password!");
+			System.out.println("2"+TRS.employees.get(0).getAccount().getUserName());
 		}
 	}
 	// Event Listener on Button[#employeeRegisterButton].onAction
 	@FXML
 	public void employeeRegister(ActionEvent event) throws IOException {
 		
-			Employee currentEmployee = TRS.letEmployeeStart('N',employeeUsername.getText().toString(), employeePassword.getText().toString());
-					
-					if(currentEmployee == null) {
+			
+					try {
 						
-						employeeSignInStatus.setText("Wrong username or password!");
-						
-					}
-					else {
+						Employee currentEmployee = TRS.letEmployeeStart('N',employeeUsername.getText().toString(), employeePassword.getText().toString());
 						
 						m.changeScene("adminHome.fxml");
-						//m.changeScene("adminSignIn.fxml");
+						System.out.println("1"+TRS.employees.get(0).getAccount().getUserName());
+					}
+					catch (Exception e) {
+						employeeSignInStatus.setText("Wrong username or password!");	
+						System.out.println("2"+TRS.employees.get(0).getAccount().getUserName());
+						e.printStackTrace();
 				}
 	}
 		
