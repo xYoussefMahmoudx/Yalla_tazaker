@@ -102,6 +102,7 @@ public class TicketReservationSystem {
 		return instance;
 	}
 	Admin currentAdmin= new Admin();
+	Employee currentEmployee= new Employee();
 	boolean accountExist;
 	String forException;
 	public Admin letAdminSignin(String userName,String password) {
@@ -326,17 +327,14 @@ public class TicketReservationSystem {
 	
 }
 		
-	public Employee letEmployeeStart(char choice,String username,String password) {
+	public Employee letEmployeeStart(char  checkChar2,String username,String password) {
 		
 		
 System.out.println("Do you Already have an Account (Y/N) : ");
 		
-		char checkChar2=input.next().charAt(0);
+	
 		if(checkChar2=='Y') {
-			
 
-			
-			Employee currentEmployee= new Employee();
 			try {
 			boolean accountExist=false;
 			for (int i = 0; i <employees.size(); i++) {
@@ -367,8 +365,8 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 			newEmployee.registerAccount(username, password);
 			employees.add(newEmployee);
 			
-			Employee currentEmployee= new Employee();
-			
+			 currentEmployee=newEmployee;
+			currentEmployee.signInAccount(username, password);
 			
 			return currentEmployee;}
 
@@ -524,23 +522,21 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		
 	}
 		
-public void letEmployeeControlEvent(Employee currentEmployee) {
+public void letEmployeeControlEvent(Employee currentEmployee,int sw,String eventName) {
 		
 		
 		
 		System.out.println("Please insert the one of the following numbers" );
 		
 		System.out.println("1: search event by name ");
-		System.out.println("2: search event by name ");
+		System.out.println("2: view event by name ");
 		
-		int sw;
-		sw=input.nextInt();
+
 		switch (sw) {
 		case 1: {
 			try {
 			System.out.println("insert the name of the event ");
-			String eventName;
-			eventName=input.nextLine();
+			
 			currentEmployee.searchEventByTitle(eventName, events);
 
 			
@@ -556,16 +552,15 @@ public void letEmployeeControlEvent(Employee currentEmployee) {
 		case 2: {
 			try {
 			System.out.println("insert the name of the event ");
-			String eventName;
-			eventName=input.nextLine();
+			
 			currentEmployee.viewEventDetails(eventName,events);	
 			}
 
 			catch (Exception e) {
 				e.getMessage();
-
-			break;
 			}
+			break;
+			
 		}
 		
 		default:

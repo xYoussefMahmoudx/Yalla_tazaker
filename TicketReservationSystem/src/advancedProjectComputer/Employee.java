@@ -212,10 +212,11 @@ public class Employee extends Person  {
 		
 		if(loginFlag==true) {	
 			for(int i=0;i<events.size();i++) {
-				
-				if(events.get(i).getTitle().contains(title)) {
-					System.out.println(" found event " + events.get(i).getTitle());
-					
+				EmployeeControlEventController ec =new EmployeeControlEventController();
+				if(events.get(i).getTitle().contains(title)) {	
+					System.out.println("iam here");
+					ec.getLabel( events.get(i).getTitle());
+					break;
 				}
 			}
 			
@@ -231,6 +232,7 @@ public class Employee extends Person  {
 		if(loginFlag==true) {
 			
 			try {
+				EmployeeControlEventController ec =new EmployeeControlEventController();
 			int index=-1;
 			for(int i=0;i<events.size();i++) {
 				
@@ -246,11 +248,14 @@ public class Employee extends Person  {
 			else {
 				
 				System.out.println("event title " + events.get(index).getTitle() );
+				
 				System.out.println("event category " + events.get(index).getCategory().getType() );
 				System.out.println("event location " + events.get(index).getLocation() );
 				System.out.println("event Start time " + events.get(index).getStartTime() );
 				System.out.println("event end time  " + events.get(index).getEndTime() );
 				System.out.println("event date " + events.get(index).getDate() );
+			
+				
 					}
 			
 			}
