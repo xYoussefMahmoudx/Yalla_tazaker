@@ -596,7 +596,7 @@ public void letEmployeeControlEvent(Employee currentEmployee) {
 				e.getMessage();
 
 			break;
-			
+			}
 		}
 		
 		default:
