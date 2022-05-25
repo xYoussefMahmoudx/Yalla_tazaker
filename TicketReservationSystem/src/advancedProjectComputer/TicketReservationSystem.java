@@ -326,7 +326,7 @@ public class TicketReservationSystem {
 	
 }
 		
-	public Employee letEmployeeStart() {
+	public Employee letEmployeeStart(char choice,String username,String password) {
 		
 		
 System.out.println("Do you Already have an Account (Y/N) : ");
@@ -335,21 +335,21 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		if(checkChar2=='Y') {
 			
 
-			System.out.println("please insert your username : " );
+			//System.out.println("please insert your username : " );
 			Employee currentEmployee= new Employee();
 			
-			String userName = input.next();
-			System.out.println("please insert your password : " );
+			//String userName = input.next();
+			//System.out.println("please insert your password : " );
 
-			  String password = input.next();
+			 // String password = input.next();
 			boolean accountExist=false;
 			for (int i = 0; i <employees.size(); i++) {
 				
-		      if(employees.get(i).getAccount().getUserName().equals(userName)&&employees.get(i).getAccount().getPassword().equals(password)) {
+		      if(employees.get(i).getAccount().getUserName().equals(username)&&employees.get(i).getAccount().getPassword().equals(password)) {
 		    	  
 		    	  accountExist = true;
 		    	  currentEmployee= employees.get(i);
-		    	  currentEmployee.signInAccount(userName,password);
+		    	  currentEmployee.signInAccount(username,password);
 		    	  
 		    	  return currentEmployee;
 		      }
@@ -363,18 +363,18 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		}
 		else if (checkChar2=='N') {
 			
-			System.out.println("creating a new account ");
+			/*System.out.println("creating a new account ");
 			System.out.println("insert your user name ");
-			String userName =input.next();
+			//String userName =input.next();
 			System.out.println("insert your password ");
-			String password =input.next();
+			//String password =input.next();*/
 			Employee newEmployee= new Employee();
-			newEmployee.registerAccount(userName, password);
+			newEmployee.registerAccount(username, password);
 			employees.add(newEmployee);
 			
 			Employee currentEmployee= new Employee();
-			
-			System.out.println(" now please sign in ");
+			return currentEmployee;}
+			/*System.out.println(" now please sign in ");
 			
 			System.out.println(" please insert your user name ");
 			 userName = input.next();
@@ -391,18 +391,18 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		    	  currentEmployee.signInAccount(userName,password);
 		    	  return currentEmployee;
 		      }
-		    }
+		    }*/
 			
-			if(!accountExist)
+			/*if(!accountExist)
 				System.out.println("Account not exist ");
 			return null;
 		}
-		
-		else {
+		*/
+		/*else {
 			
 			System.out.println("wrong choise  ");
 			return null;
-		}
+		}*/
 		
 	}
 	
