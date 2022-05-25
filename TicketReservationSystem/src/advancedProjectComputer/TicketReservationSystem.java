@@ -573,11 +573,14 @@ public void letEmployeeControlEvent(Employee currentEmployee) {
 			String eventName;
 			eventName=input.nextLine();
 			currentEmployee.searchEventByTitle(eventName, events);
+
 			
 			}
 			catch (Exception e) {
 				e.getMessage();
+
 			}
+
 			break;
 		}
 		
@@ -588,9 +591,10 @@ public void letEmployeeControlEvent(Employee currentEmployee) {
 			eventName=input.nextLine();
 			currentEmployee.viewEventDetails(eventName,events);	
 			}
+
 			catch (Exception e) {
 				e.getMessage();
-			}
+
 			break;
 			
 		}
