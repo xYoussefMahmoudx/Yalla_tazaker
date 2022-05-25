@@ -2,7 +2,10 @@ package advancedProjectComputer;
 
 public class Category {
 	private String type;
-
+	
+	public Category(String t) {
+		this.type = t;
+	}
 	public String getType() {
 		return type;
 	}

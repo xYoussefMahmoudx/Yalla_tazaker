@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advancedProjectComputer.AdminHome">
+   <top>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="213.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="199.0" fitWidth="337.0" layoutX="132.0" layoutY="1.0">
+               <image>
+                  <Image url="@../../../../47db1dba78b4d23b92e4bed0fb065ad3-4246947905.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="adminControlCategory" layoutX="235.0" layoutY="30.0" mnemonicParsing="false" onAction="#selectControlCategory" text="Control Category">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="adminControlEvent" layoutX="246.0" layoutY="70.0" mnemonicParsing="false" onAction="#selectControlEvent" text="Control Event">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="adminSignOut" layoutX="14.0" layoutY="159.0" mnemonicParsing="false" onAction="#adminSignOut" text="Sign out">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

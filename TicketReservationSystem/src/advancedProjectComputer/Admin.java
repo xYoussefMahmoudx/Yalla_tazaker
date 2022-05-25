@@ -42,13 +42,13 @@ public class Admin extends Person {
 		}
 		else System.out.println("you are not signed in");
 	}
-	public Category addCategory() {
+	public Category addCategory(String catType) {
 		
 		if(adminLoginFlag == true) {
-			Category categ1 = new Category();
+			Category categ1 = new Category(null);
 			System.out.println("Adding new categoty...");
 			System.out.println("Enter category type:");
-			categ1.setType(adminInput.next());
+			categ1.setType(catType);
 			System.out.println("Added succesfully!");
 			return categ1;
 		}
@@ -58,10 +58,10 @@ public class Admin extends Person {
 		}
 		
 	}
-	public void editCategory(Category cat1) {
+	public void editCategory(Category cat1,String catType) {
 		System.out.println("Current type of category is: "+ cat1.getType());
 		System.out.println("Enter new category type:");
-		cat1.setType(adminInput.nextLine());
+		cat1.setType(catType);
 		System.out.println("Succefully edited!");
 	}
 	public void deleteCategory(Category cat1,ArrayList<Category> categories) {
