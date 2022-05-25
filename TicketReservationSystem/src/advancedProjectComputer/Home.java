@@ -21,8 +21,8 @@ public class Home {
 		Main m = new Main();
 		m.changeScene("adminSignIn.fxml");
 	}
-	public void selectEmployee() {
-		//Main m = new Main();
-		//m.changeScene("");
+	public void selectEmployee() throws IOException {
+		Main m = new Main();
+		m.changeScene("EmployeeSignIn.fxml");
 	}
 }
