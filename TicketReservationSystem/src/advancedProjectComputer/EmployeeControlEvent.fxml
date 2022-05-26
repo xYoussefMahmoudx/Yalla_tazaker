@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="315.0" prefWidth="521.0" style="-fx-background-color: #0e2636;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advancedProjectComputer.EmployeeControlEventController">
+<AnchorPane prefHeight="315.0" prefWidth="521.0" style="-fx-background-color: #345;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advancedProjectComputer.EmployeeControlEventController1">
    <children>
       <Button fx:id="employeeHome" layoutX="339.0" layoutY="15.0" mnemonicParsing="false" onAction="#selectHome" prefHeight="30.0" prefWidth="71.0" text="Home">
          <font>
@@ -18,17 +18,27 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="adminEditCategory" layoutX="289.0" layoutY="252.0" mnemonicParsing="false" onAction="#btnViewEvent" text="view event details">
+      <Button layoutX="289.0" layoutY="252.0" mnemonicParsing="false" onAction="#btnViewEvent" text="view event details">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="adminAddCategory" layoutX="93.0" layoutY="252.0" mnemonicParsing="false" onAction="#btnSearchEvent" text="search event by name">
+      <Button layoutX="93.0" layoutY="252.0" mnemonicParsing="false" onAction="#btnSearchEvent" text="search event by name">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
       <TextField fx:id="tfSearchBar" layoutX="109.0" layoutY="56.0" prefHeight="26.0" prefWidth="315.0" />
-      <Label fx:id="showLabel" layoutX="32.0" layoutY="86.0" prefHeight="162.0" prefWidth="470.0" textFill="WHITE" wrapText="true" />
+      <Label fx:id="showLabel" layoutX="331.0" layoutY="111.0" prefHeight="26.0" prefWidth="173.0" textFill="WHITE" wrapText="true" />
+      <Label fx:id="showLabel1" layoutX="331.0" layoutY="144.0" prefHeight="26.0" prefWidth="173.0" textFill="WHITE" wrapText="true" />
+      <Label fx:id="showLabel11" layoutX="337.0" layoutY="200.0" prefHeight="26.0" prefWidth="173.0" textFill="WHITE" wrapText="true" />
+      <Label fx:id="datelab" layoutX="21.0" layoutY="120.0" prefHeight="18.0" prefWidth="174.0" textFill="WHITE" wrapText="true" />
+      <Label fx:id="starlab" layoutX="20.0" layoutY="138.0" prefHeight="18.0" prefWidth="174.0" textFill="WHITE" wrapText="true" />
+      <Label fx:id="titleLab" layoutX="21.0" layoutY="102.0" prefHeight="2.0" prefWidth="174.0" textFill="WHITE" wrapText="true" />
+      <Label fx:id="endLab" layoutX="20.0" layoutY="156.0" prefHeight="18.0" prefWidth="174.0" textFill="WHITE" wrapText="true" />
+      <Label fx:id="catLab" layoutX="22.0" layoutY="82.0" prefHeight="12.0" prefWidth="154.0" textFill="WHITE" wrapText="true" />
+      <Label fx:id="decrptionLab" layoutX="20.0" layoutY="174.0" prefHeight="18.0" prefWidth="174.0" textFill="WHITE" wrapText="true" />
+      <Label fx:id="locationLab" layoutX="20.0" layoutY="191.0" prefHeight="18.0" prefWidth="174.0" textFill="WHITE" wrapText="true" />
+      <Label fx:id="ticketLab" layoutX="20.0" layoutY="209.0" prefHeight="18.0" prefWidth="174.0" textFill="WHITE" wrapText="true" />
    </children>
 </AnchorPane>

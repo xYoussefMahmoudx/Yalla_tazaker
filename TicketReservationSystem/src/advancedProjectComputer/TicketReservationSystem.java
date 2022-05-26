@@ -18,7 +18,9 @@ public class TicketReservationSystem {
 	ArrayList<Category> categories = new ArrayList<Category>();
 	
 	ArrayList<Event> events = new ArrayList<Event>();
+	ArrayList<String> eventNames = new ArrayList<String>();
 	
+	Event eventTRS=new Event();
 	
 	public void intiateData() {
 		
@@ -525,7 +527,9 @@ public void letEmployeeControlEvent(Employee currentEmployee,int sw,String event
 			try {
 			System.out.println("insert the name of the event ");
 			
-			currentEmployee.searchEventByTitle(eventName, events);
+			
+			eventNames=currentEmployee.searchEventByTitle(eventName, events);
+			
 
 			
 			}
@@ -541,7 +545,7 @@ public void letEmployeeControlEvent(Employee currentEmployee,int sw,String event
 			try {
 			System.out.println("insert the name of the event ");
 			
-			currentEmployee.viewEventDetails(eventName,events);	
+			eventTRS =currentEmployee.viewEventDetails(eventName,events);	
 			}
 
 			catch (Exception e) {

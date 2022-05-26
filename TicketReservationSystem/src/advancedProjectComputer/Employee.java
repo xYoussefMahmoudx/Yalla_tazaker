@@ -278,15 +278,15 @@ public class Employee extends Person  {
 		}
 	}
 	
-	public void searchEventByTitle(String title,ArrayList<Event>events) {
-		
+	public ArrayList<String> searchEventByTitle(String title,ArrayList<Event>events) {
+		ArrayList<String> eventsName=new ArrayList<String>();
 		if(loginFlag==true) {	
 			for(int i=0;i<events.size();i++) {
 				EmployeeControlEventController ec =new EmployeeControlEventController();
 				if(events.get(i).getTitle().contains(title)) {	
 					System.out.println("iam here");
-					ec.getLabel( events.get(i).getTitle());
-					break;
+					eventsName.add( events.get(i).getTitle()) ;
+					
 				}
 			}
 			
@@ -296,14 +296,15 @@ public class Employee extends Person  {
 				System.out.println("you are not signed in");
 				
 			}
+		return eventsName;
 	}
 
-	public void viewEventDetails(String title,ArrayList<Event>events) {
+	public Event viewEventDetails(String title,ArrayList<Event>events) {
 		if(loginFlag==true) {
-			
+			int index=-1;
 			try {
 				EmployeeControlEventController ec =new EmployeeControlEventController();
-			int index=-1;
+			
 			for(int i=0;i<events.size();i++) {
 				
 				if(events.get(i).getTitle().equals(title)) {
@@ -317,25 +318,21 @@ public class Employee extends Person  {
 			}
 			else {
 				
-				System.out.println("event title " + events.get(index).getTitle() );
-				
-				System.out.println("event category " + events.get(index).getCategory().getType() );
-				System.out.println("event location " + events.get(index).getLocation() );
-				System.out.println("event Start time " + events.get(index).getStartTime() );
-				System.out.println("event end time  " + events.get(index).getEndTime() );
-				System.out.println("event date " + events.get(index).getDate() );	
+				return events.get(index);
 					}
 			
 			}
 			catch (Exception e) {
 				e.getMessage();
 			}
-
+			return events.get(index);
 		}
+		
 		else {
 			System.out.println("you are not signed in");
 			
 		}
+		return null;
 		
 	}
 	
