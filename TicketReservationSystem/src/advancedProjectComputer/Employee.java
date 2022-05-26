@@ -141,10 +141,10 @@ public class Employee extends Person  {
 				
 				if(clients.get(i).equals(c1)) {
 					
-					for( int j=0;i<clients.get(i).getHistory().getUpcomingEvents().size();j++) {
+					/*for( int j=0;i<clients.get(i).getHistory().getUpcomingEvents().size();j++) {
 						
 						clients.get(i).getHistory().getUpcomingEvents().get(j).unbookedTickets();
-					}
+					}*/
 					clients.remove(i);
 					break;
 				}

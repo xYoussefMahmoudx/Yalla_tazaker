@@ -36,7 +36,12 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="AddClientButton" layoutX="375.0" layoutY="14.0" mnemonicParsing="false" onAction="#AddClientClicked" text="Add Client">
+            <Button fx:id="AddClientButton" layoutX="252.0" layoutY="14.0" mnemonicParsing="false" onAction="#AddClientClicked" text="Add Client">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="DeleteClientButton" layoutX="364.0" layoutY="14.0" mnemonicParsing="false" onAction="#DeleteClientClicked" text="Delete Client">
                <font>
                   <Font size="16.0" />
                </font>

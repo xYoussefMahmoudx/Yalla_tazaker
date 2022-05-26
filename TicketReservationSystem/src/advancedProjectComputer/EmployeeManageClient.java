@@ -18,6 +18,8 @@ public class EmployeeManageClient {
 	@FXML
 	private Button AddClientButton;
 	@FXML
+	private Button DeleteClientButton;
+	@FXML
 	private Button HomeButton;
 	@FXML
 	private Button SignOutButton;
@@ -27,6 +29,9 @@ public class EmployeeManageClient {
 	}
 	public void AddClientClicked() throws IOException {
 		m.changeScene("EmployeeAddClient.fxml");
+	}
+	public void DeleteClientClicked() throws IOException {
+		m.changeScene("EmployeeDeleteClient.fxml");
 	}
 	public void EmployeeHome() throws IOException {
 		m.changeScene("EmployeeMainHomeScene.fxml");

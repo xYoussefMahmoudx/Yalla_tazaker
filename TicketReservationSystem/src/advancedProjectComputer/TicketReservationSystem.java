@@ -404,10 +404,10 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		case 2: {
 			
 			System.out.println("Please insert the name of the client you wish to delete his information");		
-			try {
+			
 				boolean exceptionFlag=false;
 				for (int i = 0; i < clients.size(); i++) {
-					
+					System.out.println(clients.get(i).getName());
 				      if(clients.get(i).getName() .equals(clientName)) {
 				    	  
 				    	 currentEmployee.deleteClient(clients.get(i), clients);
@@ -419,11 +419,11 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 				if (exceptionFlag==false) {
 					throw new NotInListException(clientName,"not found in list");
 				}
-			} 
+			 
 			
-			catch (NotInListException e) {
+			/*catch (NotInListException e) {
 				e.getNotFound();
-			}
+			}*/
 			
 			
 			
