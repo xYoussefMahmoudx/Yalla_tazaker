@@ -14,7 +14,7 @@ public class EmployeeClientHomeController {
 	// Event Listener on Button.onAction
 	@FXML
 	public void btnAdd(ActionEvent event) throws IOException {
-		m.changeScene("MainView.fxml");
+		m.changeScene("EmployeeManageClient.fxml");
 	}
 	// Event Listener on Button.onAction
 	@FXML

@@ -32,7 +32,7 @@ public class EmployeeBookController {
 	}
 	// Event Listener on Button.onAction
 	@FXML
-	public void btnBookClicked(ActionEvent event) {
+	public void btnBookClicked(ActionEvent event) throws AlreadyInListException {
 		try {
 		TRS.letEmployeeControlClient(TRS.currentEmployee, 5, tfClientName.getText(), 0, tfEventName.getText());
 		errorShow.setText("event booked sucessfuly");
@@ -43,7 +43,7 @@ public class EmployeeBookController {
 	}
 	// Event Listener on Button.onAction
 	@FXML
-	public void btnUnBookClicked(ActionEvent event) {
+	public void btnUnBookClicked(ActionEvent event) throws AlreadyInListException {
 		try {
 			TRS.letEmployeeControlClient(TRS.currentEmployee, 6, tfClientName.getText(), 0, tfEventName.getText());
 			errorShow.setText("event Unbooked sucessfuly");
