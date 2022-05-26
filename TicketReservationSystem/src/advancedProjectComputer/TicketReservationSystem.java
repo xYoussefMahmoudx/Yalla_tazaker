@@ -233,7 +233,7 @@ public class TicketReservationSystem {
 	  }
 	}
 
-	public void letAdminControlEvent(Admin currentAdmin) {
+	public void letAdminControlEvent(Admin currentAdmin,int sw,String catType,String title,String location,String date,String startTime,String endTime,String description ,int tickets) throws NotInListException {
 		
 		
 		
@@ -242,28 +242,28 @@ public class TicketReservationSystem {
 		System.out.println("2: Edit event");
 		System.out.println("3: Delete event");
 		
-	switch(input.nextInt()) {	
+	switch(sw) {	
 	
 	case 1:{
 		System.out.println("Please insert the category  you wish to add event of it");
 		try {
-			String catType = input.next();
+			
 			for (int i = 0; i < categories.size(); i++) {
 			
 				if(categories.get(i).getType() .equals(catType)) {
 		    	  
-					events.add(currentAdmin.addEvent(categories.get(i)));
+					events.add(currentAdmin.addEvent(categories.get(i), title,location,date,startTime,endTime,description,tickets)); 
 		    	  break;  
 				}
-				if(i == categories.size()) {
+				if(i == categories.size()-1) {
 					throw new NotInListException(catType, "Category does not exist!");
 				}
 		      
 			
 			}
 		}
-		catch(NotInListException e) {
-			e.getNotFound();
+		catch(NullPointerException e) {
+			
 		}
 		break;
 		
@@ -272,12 +272,12 @@ public class TicketReservationSystem {
 	case 2:{
 		System.out.println("Please insert the event  you wish to edit");
 		try {	
-			String catType = input.next();
+			
 			for (int i = 0; i < events.size(); i++) {
 			
-				if(events.get(i).getTitle() .equals(catType)) {
+				if(events.get(i).getTitle() .equals(title)) {
 		    	  
-		    	  currentAdmin.editEvent(events.get(i));
+		    	  currentAdmin.editEvent(events.get(i), title,location,date,startTime,endTime,description,tickets);
 		    	  break;  
 		      }
 		      
@@ -300,7 +300,7 @@ public class TicketReservationSystem {
 	case 3:{
 		System.out.println("Please insert the event  you wish to delete");
 		try {
-			String catType = input.next();
+			
 			for (int i = 0; i < events.size(); i++) {
 				
 			      if(events.get(i).getTitle() .equals(catType)) {

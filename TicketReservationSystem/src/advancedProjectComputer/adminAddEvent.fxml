@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0e2636;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advancedProjectComputer.adminAddEventController1">
+   <children>
+      <Button layoutX="445.0" layoutY="14.0" mnemonicParsing="false" onAction="#SelectHome" text="Home " />
+      <Button layoutX="525.0" layoutY="14.0" mnemonicParsing="false" onAction="#Signout" text="Sign out" />
+      <Label alignment="CENTER" layoutX="225.0" layoutY="26.0" prefHeight="122.0" prefWidth="156.0" text="Add Event" textFill="WHITE">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="EventBar" layoutX="99.0" layoutY="162.0" promptText="Event" />
+      <Button layoutX="477.0" layoutY="291.0" mnemonicParsing="false" onAction="#AddEvent" text="add" />
+      <Label fx:id="AddEventStatus" layoutX="463.0" layoutY="344.0" prefHeight="14.0" prefWidth="82.0" textFill="#f7f5f5" />
+      <TextField fx:id="Category" layoutX="99.0" layoutY="128.0" promptText="Category" />
+      <Label layoutX="14.0" layoutY="132.0" text="Category" textFill="#f4ebeb" />
+      <Label layoutX="23.0" layoutY="166.0" text="Event" textFill="#f4ebeb" />
+      <Label layoutX="23.0" layoutY="206.0" text="Location" textFill="#f4ebeb" />
+      <TextField fx:id="LocationBar" layoutX="99.0" layoutY="202.0" promptText="Location" />
+      <Label layoutX="33.0" layoutY="252.0" text="Date" textFill="#f4ebeb" />
+      <Label layoutX="23.0" layoutY="295.0" text="Start time" textFill="#f4ebeb" />
+      <TextField fx:id="DateBar" layoutX="99.0" layoutY="248.0" promptText="Date" />
+      <TextField fx:id="StartTimeBar" layoutX="99.0" layoutY="291.0" promptText="Start time" />
+      <Label layoutX="351.0" layoutY="132.0" text="Description" textFill="#f4ebeb" />
+      <TextField fx:id="DescriptionBar" layoutX="429.0" layoutY="128.0" promptText="Description" />
+      <Label layoutX="351.0" layoutY="166.0" text="Tickets" textFill="#f4ebeb" />
+      <TextField fx:id="TicketsBar" layoutX="429.0" layoutY="162.0" promptText="Tickets" />
+      <Label layoutX="27.0" layoutY="335.0" text="End time" textFill="#f4ebeb" />
+      <TextField fx:id="Endtimebar" layoutX="99.0" layoutY="331.0" promptText="Start time" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0e2636;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advancedProjectComputer.adminEditEventController">
+   <children>
+      <Label layoutX="245.0" layoutY="68.0" text="Edit Event" textFill="#f2f1f1">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button layoutX="510.0" layoutY="21.0" mnemonicParsing="false" onAction="#SignOut" text="Sign out" />
+      <Button layoutX="425.0" layoutY="21.0" mnemonicParsing="false" onAction="#SelectHome" text="Home" />
+      <Label layoutX="33.0" layoutY="147.0" text="Event" textFill="#efebeb" />
+      <Label layoutX="23.0" layoutY="191.0" text="Location" textFill="#efebeb" />
+      <TextField fx:id="EventBar" layoutX="104.0" layoutY="143.0" promptText="Event" />
+      <TextField fx:id="LocationBar" layoutX="104.0" layoutY="187.0" promptText="Location" />
+      <Label layoutX="33.0" layoutY="247.0" text="Date" textFill="#efebeb" />
+      <Label layoutX="20.0" layoutY="287.0" text="Start time" textFill="#efebeb" />
+      <Label layoutX="22.0" layoutY="338.0" text="End time" textFill="#efebeb" />
+      <TextField fx:id="DateBar" layoutX="104.0" layoutY="234.0" promptText="YYYY-MM-DD" />
+      <TextField fx:id="StartTimeBar" layoutX="104.0" layoutY="283.0" promptText="HH:mm" />
+      <TextField fx:id="EndTimeBar" layoutX="104.0" layoutY="334.0" promptText="HH-mm" />
+      <Label layoutX="342.0" layoutY="147.0" text="Description" textFill="#efebeb" />
+      <Label layoutX="342.0" layoutY="191.0" text="Tickets" textFill="#efebeb" />
+      <TextField fx:id="DescriptionBar" layoutX="421.0" layoutY="143.0" promptText="Description" />
+      <TextField fx:id="TicketsBar" layoutX="421.0" layoutY="187.0" promptText="Tickets" />
+      <Button layoutX="458.0" layoutY="321.0" mnemonicParsing="false" onAction="#EditEvent" text="Edit" />
+      <Label fx:id="EditStatus" layoutX="460.0" layoutY="265.0" textFill="#efeaea" />
+     
+     
+   </children>
+</AnchorPane>
