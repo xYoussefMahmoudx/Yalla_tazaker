@@ -3,6 +3,7 @@ package advancedProjectComputer;
 
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Employee extends Person  {
@@ -49,8 +50,11 @@ public class Employee extends Person  {
 	public void addClient(ArrayList<Client>clients)
 	{
 		
-		
+		while(true) {
+			try {
 		if(loginFlag==true) {
+			
+			
 			Client c1=new Client();
 			
 			System.out.println("adding client to system");
@@ -59,22 +63,68 @@ public class Employee extends Person  {
 			
 			c1.setSerialNumber();
 			System.out.println("insert client mobile number");
-			c1.setMobile(input.next());
+			
+				
+			if(input.next().length()==11){
+				c1.setMobile(input.next());
+
+			}else {
+				try {
+					throw new Exception("Enter the mobile number not less than 11 digits");
+					
+				}catch(Exception e){
+					System.out.println(e);
+					
+				}
+				
+			}
+			
 			System.out.println("insert client gender");
 			c1.setGender(input.next().charAt(0));
 			System.out.println("insert client national ID");
-			c1.setNationalID(input.next());
+			if(input.next().length()==14){
+				c1.setNationalID(input.next());
+
+			}else {
+				try {
+					throw new Exception("Enter the National ID not less than 14 digits");
+					
+				}catch(Exception e){
+					System.out.println(e);
+					
+				}
+				
+			}
 			clients.add(c1);
 			System.out.println(" you have added client succesfuly");
-			
-		}
-		else {
-			System.out.println(" you are not signed in");
-		
-		
 		}
 		
+		//else {
+		//	System.out.println(" you are not signed in");
+		
+		
+		//}
+		
+			}
+			catch (InputMismatchException exception){
+				
+	            System.out.println("your input is type mismatch, please check your input and try again. Press enter key to exit");
+	            if (input.next().isEmpty()) {
+	                break;
+	            }
+				
+				
+			}catch ( Exception e){
+				
+	            System.out.println(" you are not signed in, press enter to exist");
+	            if (input.next().isEmpty()) {
+	                break;
+	            }
+	           
+			}
+		}
 	}
+	
 	
 	public void deleteClient(Client c1,ArrayList<Client>clients)
 	{
@@ -100,38 +150,69 @@ public class Employee extends Person  {
 		}
 	}
 	
-	public Client getClientBySerial(int serialNumber ,ArrayList<Client> clients)
+	//exception by mahmoud talaat
+	public Client getClientBySerial(int serialNumber ,ArrayList<Client> clients) 
 	{
 		int index=-1;
 		for (int i = 0; i < clients.size(); i++) {
-			
+			try {
 		      if(clients.get(i).getSerialNumber()==serialNumber ) {
 		    	  
 		    	 index=i;
 		      }
-		}
+		      
+			}catch (InputMismatchException exception){
+				
+	            System.out.println("your input is type mismatch, please check your input and try again. Press enter key to exit");
+	           
+	            if (input.next().isEmpty()) {
+	                break;
+	            }}catch ( Exception ex){
+					
+		            System.out.println(" Serial number is not found, press enter to exit");
+		            if (input.next().isEmpty()) {
+		                break;
+		            }
+		           
+		           
+	            }}
+		
+		
 		if(loginFlag==true && index>=0) {
-			System.out.println("client name is "+ clients.get(index).getName());
-			System.out.println("client seial number is "+ clients.get(index).getSerialNumber());
-			System.out.println("client national ID is "+ clients.get(index).getNationalID());
-			System.out.println("client Gender is "+ clients.get(index).getGender());
-			System.out.println("client mobile is "+ clients.get(index).getMobile());
-			
-			return clients.get(index);
-		}
-		else if (loginFlag==false) {
-			System.out.println(" you are not signed in");
+	    			System.out.println("client name is "+ clients.get(index).getName());
+	    			System.out.println("client seial number is "+ clients.get(index).getSerialNumber());
+	    			System.out.println("client national ID is "+ clients.get(index).getNationalID());
+	    			System.out.println("client Gender is "+ clients.get(index).getGender());
+	    			System.out.println("client mobile is "+ clients.get(index).getMobile());
+	    			
+	    			return clients.get(index);
+	    		
+//	    		else if (loginFlag==false) {
+//	    			System.out.println(" you are not signed in");
+//	    			return null;
+//	    		}
+//	    		else {
+//	    			System.out.println("wrong serial number");
+//	    			return null;
+//	    		}
+		} else {
+			try {
+				throw new Exception("you are not signed in");
+			}catch(Exception e) {
+				System.out.println(e);
+			}
 			return null;
 		}
-		else {
-			System.out.println("wrong serial number");
-			return null;
-		}
-	}
 	
+		
+		
+		
+	}
+	//exception by mahmoud talaat
 	public Client getClientByName(String name ,ArrayList<Client> clients)
 	{
 		int index=-1;
+	try {
 		for (int i = 0; i < clients.size(); i++) {
 			
 		      if(clients.get(i).getName().equals(name) ) {
@@ -139,7 +220,11 @@ public class Employee extends Person  {
 		    	 index=i;
 		      }
 		}
+	}catch(ArrayIndexOutOfBoundsException e) {
+		System.out.println("User not found!!");
 		
+	}
+	
 		if(loginFlag==true && index>=0) {
 			
 			System.out.println("client name is "+ clients.get(index).getName());
@@ -149,16 +234,24 @@ public class Employee extends Person  {
 			System.out.println("client mobile is "+ clients.get(index).getMobile());
 			
 			return clients.get(index);
-		}
-		else if (loginFlag==false) {
-			System.out.println(" you are not signed in");
-			return null;
-
-		}
-		else {
-			System.out.println("wrong name");
+		} else {
+			try {
+				throw new Exception("you are not signed in");
+			}catch(Exception e) {
+				System.out.println(e);
+			}
 			return null;
 		}
+//		else if (loginFlag==false) {
+//			System.out.println(" you are not signed in");
+//			return null;
+//
+//		}
+//		else {
+//			System.out.println("wrong name");
+//			return null;
+//		}
+		
 	}
 	
 	

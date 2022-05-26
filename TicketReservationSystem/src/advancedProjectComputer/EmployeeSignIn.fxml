@@ -4,66 +4,43 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advancedProjectComputer.EmployeeSignInController">
+<AnchorPane prefHeight="366.0" prefWidth="554.0" style="-fx-background-color: #0e2636;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advancedProjectComputer.EmployeeSignInController">
    <children>
-      <BorderPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
-         <left>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fitHeight="410.0" fitWidth="282.0" layoutY="14.0">
-                     <image>
-                        <Image url="@../../../../47db1dba78b4d23b92e4bed0fb065ad3-4246947905.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-         </left>
-         <right>
-            <AnchorPane prefHeight="400.0" prefWidth="325.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label layoutX="123.0" layoutY="73.0" text="Sign In">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="41.0" layoutY="158.0" text="Username">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="43.0" layoutY="221.0" text="Password">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField id="adminUsername" fx:id="employeeUsername" layoutX="123.0" layoutY="156.0" promptText="Username" />
-                  <PasswordField id="adminPassword" fx:id="employeePassword" layoutX="124.0" layoutY="218.0" promptText="Password" />
-                  <Button id="adminSignInButton" fx:id="employeeSignInButton" layoutX="211.0" layoutY="275.0" mnemonicParsing="false" onAction="#employeeSignIn" text="Sign in">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                  <Label id="adminSignInStatus" fx:id="adminSignInStatus" ellipsisString="" layoutX="110.0" layoutY="334.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="employeeRegisterButton" layoutX="84.0" layoutY="277.0" mnemonicParsing="false" onAction="#employeeRegister" text="Register">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                  <Label fx:id="employeeSignInStatus" alignment="CENTER" layoutX="22.0" layoutY="325.0" prefHeight="58.0" prefWidth="262.0" />
-               </children>
-            </AnchorPane>
-         </right>
-      </BorderPane>
+      <Button fx:id="employeeRegisterButton" layoutX="439.0" layoutY="246.0" mnemonicParsing="false" onAction="#employeeRegister" text="Register">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button id="adminSignInButton" fx:id="employeeSignInButton" layoutX="438.0" layoutY="289.0" mnemonicParsing="false" onAction="#employeeSignIn" prefHeight="30.0" prefWidth="70.0" text="Sign in">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <PasswordField id="adminPassword" fx:id="employeePassword" layoutX="184.0" layoutY="235.0" promptText="Password" />
+      <Label alignment="CENTER" layoutX="93.0" layoutY="52.0" prefHeight="58.0" prefWidth="315.0" text="Sign In" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="103.0" layoutY="173.0" text="Username" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="103.0" layoutY="238.0" prefHeight="20.0" prefWidth="62.0" text="Password" textFill="#f7f3f3">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField id="adminUsername" fx:id="employeeUsername" layoutX="184.0" layoutY="170.0" promptText="Username" />
+      <Label fx:id="employeeSignInStatus" alignment="CENTER" layoutX="127.0" layoutY="275.0" prefHeight="58.0" prefWidth="262.0" textFill="WHITE" />
+      <Label id="adminSignInStatus" fx:id="adminSignInStatus" ellipsisString="">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

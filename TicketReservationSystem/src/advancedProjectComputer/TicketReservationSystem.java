@@ -373,7 +373,7 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		
 	}
 	
-	public void letEmployeeControlClient(Employee currentEmployee) {
+	public void letEmployeeControlClient(Employee currentEmployee,int sw,String clientName,int clientNumber,String eventTitle) throws NotInListException {
 		
 		System.out.println("Please insert the one of the following numbers" );
 		System.out.println("1: Add client");
@@ -386,7 +386,7 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		
 		
 		
-		switch (input.nextInt()) {
+		switch (sw) {
 
 		case 1: {
 			
@@ -398,10 +398,7 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		
 		case 2: {
 			
-			System.out.println("Please insert the name of the client you wish to delete his information");
-			String clientName ;
-			clientName = input.next();
-			
+			System.out.println("Please insert the name of the client you wish to delete his information");		
 			try {
 				boolean exceptionFlag=false;
 				for (int i = 0; i < clients.size(); i++) {
@@ -430,33 +427,27 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		
 		
 		
-		case 3: {
+	case 3: {
 			
 			System.out.println("Please insert the name of the client ");
-			String clientName = input.next();
 			currentEmployee.getClientByName(clientName, clients);
 			
 			break;
 		}
 		
-		case 4: {
-			
-			System.out.println("Please insert the serial number of the client ");
-			int clientNumber = input.nextInt();
-			currentEmployee.getClientBySerial(clientNumber, clients);
-			
-			break;
-		}
+	case 4: {
+		
+		System.out.println("Please insert the serial number of the client ");
+		currentEmployee.getClientBySerial(clientNumber, clients);
+		break;
+	}
 		
 		case 5: {
 		try {
 			Boolean excptionCheckBoolean=false;
 			System.out.println("plese insert title of event you want to book :");
-			String eventTitle;
-			eventTitle = input.next();
+			
 			System.out.println("please insert name of the client you want to book for him :");
-			String clientName;
-			clientName = input.next();
 			for (int i = 0; i < clients.size(); i++) {
 				
 			      if(clients.get(i).getName().equals(clientName) ) {
@@ -473,8 +464,7 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		}
 		catch (NullPointerException n) {
 			System.out.println("  event name not fount ");
-		} catch (NotInListException e) {
-			e.getNotFound();
+		
 		}
 	
 			break;
@@ -486,11 +476,9 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		Boolean excptionCheckBoolean=false;
 			System.out.println("plese insert title of event you want to unbook :");
 			
-			String eventTitle;
-			eventTitle = input.next();
+
 			
 			System.out.println("please insert name of the client you want to unbook for him :");
-			String clientName;
 			clientName = input.next();
 			for (int i = 0; i < clients.size(); i++) {
 				
@@ -507,8 +495,6 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 			}
 			catch (NullPointerException n) {
 				System.out.println("  event name not fount ");
-			} catch (NotInListException e) {
-				e.getNotFound();
 			}
 			
 			

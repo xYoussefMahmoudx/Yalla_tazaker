@@ -8,12 +8,12 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0e2636;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="advancedProjectComputer.EmployeeMainHomeSceneController">
    <children>
       <Button fx:id="btnSignOutClicked" layoutX="453.0" layoutY="14.0" mnemonicParsing="false" onAction="#signOut" prefHeight="34.0" prefWidth="119.0" text="Sign out" />
-      <Button fx:id="btnClientClicked" layoutX="118.0" layoutY="208.0" mnemonicParsing="false" onAction="#Mangeclient" prefHeight="154.0" prefWidth="130.0" text="Mange client" />
-      <Label alignment="CENTER" layoutX="61.0" layoutY="127.0" prefHeight="34.0" prefWidth="490.0" text="What do you want to do?" textFill="#fffcfc">
+      <Button fx:id="btnClientClicked" layoutX="325.0" layoutY="278.0" mnemonicParsing="false" onAction="#Mangeclient" prefHeight="35.0" prefWidth="138.0" text="Mange client" />
+      <Label alignment="CENTER" layoutX="54.0" layoutY="126.0" prefHeight="34.0" prefWidth="490.0" text="What do you want to do?" textFill="#fffcfc">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnEventClicked" layoutX="352.0" layoutY="208.0" mnemonicParsing="false" onAction="#Mangeevent" prefHeight="154.0" prefWidth="130.0" text="Mange Event" />
+      <Button fx:id="btnEventClicked" layoutX="135.0" layoutY="278.0" mnemonicParsing="false" onAction="#Mangeevent" prefHeight="35.0" prefWidth="137.0" text="Mange Event" />
    </children>
 </AnchorPane>
