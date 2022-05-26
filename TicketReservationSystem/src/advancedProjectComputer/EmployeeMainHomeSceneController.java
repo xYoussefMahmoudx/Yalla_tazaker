@@ -34,5 +34,10 @@ public class EmployeeMainHomeSceneController {
 	
 	m.changeScene("EmployeeClientHome.fxml");
    }
+   public void btnGet() throws IOException {
+		
+		m.changeScene("EmployeeRetriveData.fxml");
+	   }
+   
 
 }

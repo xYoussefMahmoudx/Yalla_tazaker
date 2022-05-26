@@ -350,7 +350,8 @@ public class Employee extends Person  {
 		
 	}
 	
-	public void getEventsOfSameCategoty(String catType,ArrayList<Event>events) {
+	public ArrayList<String> getEventsOfSameCategoty(String catType,ArrayList<Event>events) throws NotInListException {
+		ArrayList<String> eventsName=new ArrayList<String>();
 		if(loginFlag==true) {
 		Boolean check =false;
 		System.out.println("please insert event's category Type");
@@ -359,17 +360,21 @@ public class Employee extends Person  {
 			
 			if(events.get(i).getCategory().getType().equals(catType)) {
 				System.out.println( events.get(i).getTitle());
+				eventsName.add(events.get(i).getTitle());
 				check=true;
 			}
 		}
 		if (check==false) {
 			System.out.println("no events found of this category");
-			
+			throw new NotInListException(catType,"no events found of this category" );
 		}
+		return eventsName;
 		}
-		else {
-			
-		}
+		
+				else {
+					System.out.println("you are not signed in");
+					return eventsName;
+				}	
 	
 	}
 	

@@ -80,7 +80,7 @@ public class TicketReservationSystem {
        event2.setEndTime(LocalTime.of(11,30 ));
        event2.setDescription("good moviee");
        event2.setAvailbleTickets(30);
-       event2.setCategory(categories.get(1));
+       event2.setCategory(categories.get(0));
 		events.add( event2);
 		
 	       Event event3 = new Event();	
@@ -535,7 +535,7 @@ public void letEmployeeControlEvent(Employee currentEmployee,int sw,String event
 			try {
 			System.out.println("insert the name of the event ");
 			
-			
+			eventNames.clear();
 			eventNames=currentEmployee.searchEventByTitle(eventName, events);
 			
 
