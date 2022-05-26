@@ -482,11 +482,10 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 
 			
 			System.out.println("please insert name of the client you want to unbook for him :");
-			clientName = input.next();
 			for (int i = 0; i < clients.size(); i++) {
 				
 			      if(clients.get(i).getName().equals(clientName) ) {
-			    	  
+			    	  excptionCheckBoolean = true;
 			    	  currentEmployee.unbookEvent(clients.get(i), currentEmployee.findEvent(eventTitle, events));
 						break;
 			      }

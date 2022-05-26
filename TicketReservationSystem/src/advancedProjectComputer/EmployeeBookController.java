@@ -13,6 +13,7 @@ public class EmployeeBookController {
 	private TextField tfEventName;
 	@FXML
 	private TextField tfClientName;
+	@FXML
 	private Label errorShow;
 
 
