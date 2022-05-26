@@ -145,8 +145,7 @@ public class TicketReservationSystem {
 		System.out.println("1: Add category");
 		System.out.println("2: Edit category");
 		System.out.println("3: Delete category");
-		//int sw;
-		//sw=input.nextInt();
+	
 	switch(sw) {	
 	case 1:{
 		try {
@@ -200,7 +199,7 @@ public class TicketReservationSystem {
 	case 3:{
 		System.out.println("Please insert the Category  you wish to delete");
 		try {
-			//String catType = input.next();
+			
 			for (int i = 0; i < categories.size(); i++) {
 					System.out.println(categories.get(i).getType());
 			      if(categories.get(i).getType().equals(catType)) {

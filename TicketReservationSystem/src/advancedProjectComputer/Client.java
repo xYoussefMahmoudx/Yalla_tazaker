@@ -56,11 +56,5 @@ public class Client extends Person {
 		return history;
 	}
 
-	public static void main(String[] args) {
-		Client client=new Client();
-		Event event=new Event();
-		
-		client.getHistory().getUpcomingEvents();
-	System.out.println("hi");
-	}
+
 }

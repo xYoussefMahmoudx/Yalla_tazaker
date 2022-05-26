@@ -17,12 +17,6 @@ public class Event {
 	private LocalTime endTime ;
 	
 	private Category category;
-	
-	
-	
-	
-	
-	
 
 	public String getTitle() {
 		return title;

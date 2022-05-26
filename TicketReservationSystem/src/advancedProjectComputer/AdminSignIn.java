@@ -27,10 +27,6 @@ public class AdminSignIn {
 	
 	public void adminSignIn() throws IOException {
 		Main m = new Main();
-		/*if(adminUsername.getText().equals("dum") && adminPassword.getText().equals(null)) {
-			m.changeScene("adminHome.fxml");
-		}*/
-		//Admin myAdmin = new Admin();
 		Admin myAdmin = TRS.letAdminSignin(adminUsername.getText().toString(), adminPassword.getText().toString());
 		
 		if(myAdmin == null) {
@@ -41,7 +37,7 @@ public class AdminSignIn {
 		else {
 			
 			m.changeScene("adminHome.fxml");
-			//m.changeScene("adminSignIn.fxml");
+			
 		}
 	}
 	

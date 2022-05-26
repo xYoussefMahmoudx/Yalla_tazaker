@@ -146,8 +146,6 @@ public class Admin extends Person {
 			}
 		}
 		
-		
-		
 		event1 = null;
 		System.out.println("Successfuly deleted event.");
 		}

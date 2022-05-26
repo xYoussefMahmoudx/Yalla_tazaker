@@ -55,18 +55,7 @@ public class History {
 	return upcomingEvent;
 	}
 	
-	/*public void setEventsHistory(Event event) {
-		LocalTime timeNow =LocalTime.now();
-		LocalDate dateNow =LocalDate.now();
-
-		if (event.getStartTime().compareTo(timeNow)<=0 &&event.getDate().compareTo(dateNow)<=0) {
-			this.attendedEvent.add(event);
-		}
-		else {
-			this.upcomingEvent.add(event);
-		}
-
-	}*/
+	
 	public void setUpcomingEvent(Event event)
 		 {
 			 upcomingEvent.add(event);

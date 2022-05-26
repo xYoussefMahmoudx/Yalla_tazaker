@@ -99,11 +99,7 @@ public class Employee extends Person  {
 			System.out.println(" you have added client succesfuly");
 		}
 		
-		//else {
-		//	System.out.println(" you are not signed in");
 		
-		
-		//}
 		
 			}
 			catch (InputMismatchException exception){
@@ -176,8 +172,6 @@ public class Employee extends Person  {
 		           
 		           
 	            }}
-		
-		
 		if(loginFlag==true && index>=0) {
 	    			System.out.println("client name is "+ clients.get(index).getName());
 	    			System.out.println("client seial number is "+ clients.get(index).getSerialNumber());
@@ -187,14 +181,6 @@ public class Employee extends Person  {
 	    			
 	    			return clients.get(index);
 	    		
-//	    		else if (loginFlag==false) {
-//	    			System.out.println(" you are not signed in");
-//	    			return null;
-//	    		}
-//	    		else {
-//	    			System.out.println("wrong serial number");
-//	    			return null;
-//	    		}
 		} else {
 			try {
 				throw new Exception("you are not signed in");
@@ -242,15 +228,6 @@ public class Employee extends Person  {
 			}
 			return null;
 		}
-//		else if (loginFlag==false) {
-//			System.out.println(" you are not signed in");
-//			return null;
-//
-//		}
-//		else {
-//			System.out.println("wrong name");
-//			return null;
-//		}
 		
 	}
 	
@@ -346,20 +323,14 @@ public class Employee extends Person  {
 				System.out.println("event location " + events.get(index).getLocation() );
 				System.out.println("event Start time " + events.get(index).getStartTime() );
 				System.out.println("event end time  " + events.get(index).getEndTime() );
-				System.out.println("event date " + events.get(index).getDate() );
-			
-				
+				System.out.println("event date " + events.get(index).getDate() );	
 					}
 			
 			}
 			catch (Exception e) {
 				e.getMessage();
 			}
-			
-	
-			
-		
-			
+
 		}
 		else {
 			System.out.println("you are not signed in");
@@ -384,9 +355,6 @@ public class Employee extends Person  {
 			System.out.println("no events found of this category");
 			
 		}
-		
-		
-		
 		}
 		else {
 			
@@ -404,8 +372,6 @@ public class Employee extends Person  {
 					return events.get(i);
 				}
 			}
-			
-			
 			}
 			else {
 				System.out.println("you are not signed in");
