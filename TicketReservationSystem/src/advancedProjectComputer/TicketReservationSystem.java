@@ -300,25 +300,31 @@ public class TicketReservationSystem {
    }
 	case 3:{
 		System.out.println("Please insert the event  you wish to delete");
-		try {
+try {
 			
 			for (int i = 0; i < events.size(); i++) {
-				
-			      if(events.get(i).getTitle() .equals(catType)) {
+					System.out.println(events.get(i).getTitle());
+			      if(events.get(i).getTitle().equals(catType)) {
 			    	  
 			    	  currentAdmin.deleteEvent(events.get(i), events);
+			    	  error = false;
 			    	  break;  
 			      }
-			      if(i==events.size()-1) {
-			    	   throw new NotInListException(catType,"No event with this name to delete ");
-			       }
-			
-			
+			      if(i == (events.size()-1)) {
+			    	  error = true;
+			    	  throw new NotInListException(catType, "Event does not exist!");
+			    	  
+			      }
+			}
 		}
-			}
-			catch (NotInListException e) {
-				e.getNotFound();
-			}
+		catch(NotInListException e) {
+			e.getNotFound();
+			forException = e.getNotFound() + " does not exist!";
+		}
+		catch (NullPointerException e) {
+			error = true;
+			e.getMessage();
+		}
 	break;
 	}
 	
