@@ -326,7 +326,7 @@ public class TicketReservationSystem {
 	
 }
 		
-	public Employee letEmployeeStart(char  checkChar2,String username,String password) {
+	public Employee letEmployeeStart(char  checkChar2,String username,String password) throws NotInListException {
 		
 		
 System.out.println("Do you Already have an Account (Y/N) : ");
@@ -347,13 +347,17 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		      }
 		    }
 			
-			if(accountExist==false)
+			if(accountExist==false) {
 				System.out.println("Account not exist ");
-			throw new NotInListException(username, " user name not found");
+			throw new NotInListException(username, " user name not found");}
+             else {
+				System.out.println("Account exist");
 			}
-			catch (NotInListException e) {
-				e.getNotFound();
+			}catch (NullPointerException e) {
+				
 			}
+			
+			
 			  return currentEmployee;
 			
 		}

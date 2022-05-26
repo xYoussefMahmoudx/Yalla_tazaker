@@ -35,7 +35,7 @@ public class EmployeeSignInController {
 			m.changeScene("EmployeeMainHomeScene.fxml");
 			
 		}
-		catch(NullPointerException e) {
+		catch(NotInListException e) {
 			employeeSignInStatus.setText("Wrong username or password!");
 		
 		}
