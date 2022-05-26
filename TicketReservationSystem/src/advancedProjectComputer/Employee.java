@@ -296,7 +296,7 @@ public class Employee extends Person  {
 		ArrayList<String> eventsName=new ArrayList<String>();
 		if(loginFlag==true) {	
 			for(int i=0;i<events.size();i++) {
-				EmployeeControlEventController ec =new EmployeeControlEventController();
+		
 				if(events.get(i).getTitle().contains(title)) {	
 					System.out.println("iam here");
 					eventsName.add( events.get(i).getTitle()) ;
@@ -317,7 +317,7 @@ public class Employee extends Person  {
 		if(loginFlag==true) {
 			int index=-1;
 			try {
-				EmployeeControlEventController ec =new EmployeeControlEventController();
+				
 			
 			for(int i=0;i<events.size();i++) {
 				
