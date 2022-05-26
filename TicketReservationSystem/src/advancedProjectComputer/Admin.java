@@ -82,27 +82,27 @@ public class Admin extends Person {
 		System.out.println("you are not signed in");
 	  }
 	}
-	public Event addEvent(Category category) {
+	public Event addEvent(Category category,String title,String location,String date,String startTime,String endTime,String description ,int tickets) {
 		Event event1 = new Event();
 		if(adminLoginFlag == true) {
 			System.out.println("Adding new event...");
 			System.out.println("Enter event title:");
 			event1.setCategory(category);
 			System.out.println("Enter event title:");
-			event1.setTitle(adminInput.nextLine());
+			event1.setTitle(title);
 			System.out.println("Enter event location:");
-			event1.setLocation(adminInput.nextLine());
+			event1.setLocation(location);
 			System.out.println("Enter event date YYYY-MM-DD :");
 			
-			event1.setDate(LocalDate.parse(adminInput.nextLine()));
+			event1.setDate(LocalDate.parse(date));
 			System.out.println("Enter event start time:");
-			event1.setStartTime(LocalTime.parse(adminInput.nextLine()));
+			event1.setStartTime(LocalTime.parse(startTime));
 			System.out.println("Enter event end time:");
-			event1.setEndTime(LocalTime.parse(adminInput.nextLine()));
+			event1.setEndTime(LocalTime.parse(endTime));
 			System.out.println("Enter event's description");
-			event1.setDescription(adminInput.nextLine());
+			event1.setDescription(description);
 			System.out.println("Enter event's number of tickets");
-			event1.setAvailbleTickets(adminInput.nextInt());
+			event1.setAvailbleTickets(tickets);
 			System.out.println(" you have succesfully Added a new event.");
 			return event1;
 		}
@@ -111,24 +111,24 @@ public class Admin extends Person {
 			return null;
 		}
 	}
-	public void editEvent(Event event1) {
+	public void editEvent(Event event1,String title,String location,String date,String startTime,String endTime,String description ,int tickets) {
 		
 	if(adminLoginFlag==true) {	
 		System.out.println("Editing event " + event1.getTitle());
 		System.out.println("Enter event title:");
-		event1.setTitle(adminInput.nextLine());
+		event1.setTitle(title);
 		System.out.println("Enter event location:");
-		event1.setLocation(adminInput.nextLine());
+		event1.setLocation(location);
 		System.out.println("Enter event date YYYY-MM-DD :");
-		event1.setDate(LocalDate.parse(adminInput.nextLine()));
+		event1.setDate(LocalDate.parse(date));
 		System.out.println("Enter event start time:");
-		event1.setStartTime(LocalTime.parse(adminInput.nextLine()));
+		event1.setStartTime(LocalTime.parse(startTime));
 		System.out.println("Enter event end time:");
-		event1.setEndTime(LocalTime.parse(adminInput.nextLine()));
+		event1.setEndTime(LocalTime.parse(endTime));
 		System.out.println("Enter event's description");
-		event1.setDescription(adminInput.nextLine());
+		event1.setDescription(description);
 		System.out.println("Enter event's number of tickets");
-		event1.setAvailbleTickets(adminInput.nextInt());
+		event1.setAvailbleTickets(tickets);
 		System.out.println("Successfuly modified event.");
 	  }
 	else {
