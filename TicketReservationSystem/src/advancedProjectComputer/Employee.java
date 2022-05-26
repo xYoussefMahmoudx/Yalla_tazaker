@@ -47,26 +47,32 @@ public class Employee extends Person  {
 		else{System.out.println("you are not signed in");}
 		
 	}
-	public void addClient(ArrayList<Client>clients)
+	public void addClient(ArrayList<Client>clients,String clientName,String clientMobile,String clientID,char clientGender) throws AlreadyInListException
 	{
 		
-		while(true) {
+		
 			try {
 		if(loginFlag==true) {
 			
 			
+				for(int i = 0;i < clients.size();i++) {
+					if(clients.get(i).getNationalID().equals(clientID)) {
+						throw new AlreadyInListException(clientID, " already exist!");
+					}
+				}
+			 
 			Client c1=new Client();
 			
 			System.out.println("adding client to system");
 			System.out.println("insert client name ");
-			c1.setName(input.next());
+			c1.setName(clientName);
 			
 			c1.setSerialNumber();
 			System.out.println("insert client mobile number");
 			
 				
-			if(input.next().length()==11){
-				c1.setMobile(input.next());
+			if(clientMobile.length()==11){
+				c1.setMobile(clientMobile);
 
 			}else {
 				try {
@@ -80,10 +86,10 @@ public class Employee extends Person  {
 			}
 			
 			System.out.println("insert client gender");
-			c1.setGender(input.next().charAt(0));
+			c1.setGender(clientGender);
 			System.out.println("insert client national ID");
-			if(input.next().length()==14){
-				c1.setNationalID(input.next());
+			if(clientID.length() >= 14){
+				c1.setNationalID(clientID);
 
 			}else {
 				try {
@@ -101,26 +107,32 @@ public class Employee extends Person  {
 		
 		
 		
-			}
-			catch (InputMismatchException exception){
+			
+			/*catch (InputMismatchException exception){
 				
 	            System.out.println("your input is type mismatch, please check your input and try again. Press enter key to exit");
-	            if (input.next().isEmpty()) {
+	            /*if (input.next().isEmpty()) {
 	                break;
 	            }
 				
 				
-			}catch ( Exception e){
+			}*/
+			/*catch ( Exception e){
 				
 	            System.out.println(" you are not signed in, press enter to exist");
-	            if (input.next().isEmpty()) {
+	            /*if (input.next().isEmpty()) {
 	                break;
 	            }
-	           
+			}*/
 			}
+		catch (NullPointerException e) {
+			e.getMessage();
 		}
-	}
+		/*catch (AlreadyInListException e) {
+				e.getFound();
+			}*/
 	
+	}
 	
 	public void deleteClient(Client c1,ArrayList<Client>clients)
 	{
@@ -161,14 +173,16 @@ public class Employee extends Person  {
 				
 	            System.out.println("your input is type mismatch, please check your input and try again. Press enter key to exit");
 	           
-	            if (input.next().isEmpty()) {
+	            /*if (input.next().isEmpty()) {
 	                break;
-	            }}catch ( Exception ex){
+	            }*/
+	            }
+			catch ( Exception ex){
 					
 		            System.out.println(" Serial number is not found, press enter to exit");
-		            if (input.next().isEmpty()) {
+		            /*if (input.next().isEmpty()) {
 		                break;
-		            }
+		            }*/
 		           
 		           
 	            }}

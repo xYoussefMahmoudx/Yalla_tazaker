@@ -103,6 +103,7 @@ public class TicketReservationSystem {
 	}
 	Admin currentAdmin= new Admin();
 	Employee currentEmployee= new Employee();
+	Client currentClient = new Client();
 	boolean accountExist;
 	String forException;
 	public Admin letAdminSignin(String userName,String password) {
@@ -375,8 +376,9 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 
 		
 	}
-	
-	public void letEmployeeControlClient(Employee currentEmployee,int sw,String clientName,int clientNumber,String eventTitle) throws NotInListException {
+	String clientMobile,clientID;
+	char clientGender;
+	public void letEmployeeControlClient(Employee currentEmployee,int sw,String clientName,int clientNumber,String eventTitle) throws NotInListException, AlreadyInListException {
 		
 		System.out.println("Please insert the one of the following numbers" );
 		System.out.println("1: Add client");
@@ -394,7 +396,7 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 		case 1: {
 			
 			
-			currentEmployee.addClient(clients);
+			currentEmployee.addClient(clients,clientName,clientMobile,clientID,clientGender);
 			break;
 		}
 		
@@ -433,7 +435,7 @@ System.out.println("Do you Already have an Account (Y/N) : ");
 	case 3: {
 			
 			System.out.println("Please insert the name of the client ");
-			currentEmployee.getClientByName(clientName, clients);
+			currentClient =  currentEmployee.getClientByName(clientName, clients);
 			
 			break;
 		}
